@@ -24,11 +24,11 @@ class TechnicianSeeder extends Seeder
             $professions = [];
 
             if ($numberOfProfession == 1 ) {
-                $professions = [rand(1, 4)];
+                $professions = [rand(1, 6)];
             }
 
             if ($numberOfProfession == 2 ) {
-                $professions = [rand(1, 2), rand(3, 4)];
+                $professions = [rand(1, 3), rand(4, 6)];
             }
             
             $technician->professions()->attach($professions);

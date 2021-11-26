@@ -22,6 +22,8 @@ class CreateTechniciansTable extends Migration
             $table->string('email')->nullable();
             $table->string('address')->nullable();
 
+            $table->boolean('have_warranty')->nullable();
+
             $table->bigInteger('quantity_of_jobs')->nullable();
             $table->string('experience')->nullable();
 

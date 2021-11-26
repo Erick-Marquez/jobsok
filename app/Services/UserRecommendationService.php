@@ -30,7 +30,9 @@ class UserRecommendationService
         $userRecommendation = $this->userRepository->getUserPreference($user);
 
         $this->technicianRepository->filterTechnicianForCity($city);
+        $this->technicianRepository->filterTechnicianForWarranty();
         $this->technicianRepository->filterTechnicianForPreferences($userRecommendation);
+  
         $technicians = $this->technicianRepository->getTechnicians();
 
 

@@ -18,6 +18,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('technicians', [App\Http\Controllers\Api\TechnicianController::class , 'index']);
+Route::get('technicians/{id}', [App\Http\Controllers\Api\TechnicianController::class , 'index']);
 
 Route::put('update-preference/{user}', [App\Http\Controllers\Api\TechnicianController::class , 'updatePreference']);

@@ -27,8 +27,13 @@ class TechnicianRepository
 
     public function filterTechnicianForPreferences($id)
     {
+        $this->filter->with(['professions', 'city']);
+        return $this;
+    }
 
-        $this->filter->with(['professions']);
+    public function filterTechnicianForWarranty()
+    {
+        $this->filter->orderBy('have_warranty', 'DESC');
         return $this;
     }
 

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Profession;
 use App\Models\Technician;
 use App\Models\User;
+use App\Repositories\UserRepository;
 use App\Services\UserRecommendationService;
 use Illuminate\Http\Request;
 
@@ -23,14 +24,15 @@ class TechnicianController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        $user = 1;
+        $user = (new UserRepository)->findWithCity($id);
         $professions = Profession::all();
-        $technicians = $this->userRecommendationService->getTechnicianRecommendations($user);
+        $technicians = $this->userRecommendationService->getTechnicianRecommendations($id);
 
         return response()->json([
 
+            'user' => $user,
             'professions' => $professions,
             'technicians' => $technicians
 
@@ -102,7 +104,6 @@ class TechnicianController extends Controller
     {
         //
     }
-
 
     public function updatePreference(Request $request, $user)
     {

@@ -21,6 +21,8 @@ class TechnicianFactory extends Factory
             'email' => $this->faker->unique()->safeEmail(),
             'address' => $this->faker->streetAddress,
 
+            'have_warranty' => $this->faker->boolean,
+
             'quantity_of_jobs' => $this->faker->numberBetween(0, 50),
             'experience' => $this->faker->text,
 

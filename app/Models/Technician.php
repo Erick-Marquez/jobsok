@@ -16,6 +16,8 @@ class Technician extends Model
         'email',
         'address',
 
+        'have_warranty',
+
         'quantity_of_jobs',
         'experience',
 

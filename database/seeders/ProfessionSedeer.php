@@ -20,6 +20,8 @@ class ProfessionSedeer extends Seeder
             ['description' => 'Carpintero'],
             ['description' => 'Pintor'],
             ['description' => 'Electricista'],
+            ['description' => 'Cerrajero'],
+            ['description' => 'Constructor'],
         ]);
 
     }
