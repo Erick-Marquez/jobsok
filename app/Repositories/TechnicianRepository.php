@@ -19,6 +19,12 @@ class TechnicianRepository
         return Technician::findOrFail($id);
     }
 
+    public function findTechnicianWithAllRelations(int $id)
+    {
+        return Technician::where('id', $id)->with('city', 'professions')->firstOrFail();
+    }
+
+
     public function filterTechnicianForCity(int $id)
     {
         $this->filter = Technician::orderByRaw('FIELD (city_id, ' . $id . ') DESC');

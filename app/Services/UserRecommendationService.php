@@ -54,14 +54,39 @@ class UserRecommendationService
         }
 
         $technicians = array_merge($filterUp, $filterDown);
-
         
         return $technicians;
 
     }
 
-    public function updateUserRecommendation($request, $user)
+    public function updateUserRecommendation($request, $id)
     {
+
+        $user = $this->userRepository->findUserRecommendations($id);
+
+        $recommendations = [];
+
+        foreach ($request as $profession) {
+            
+            $haveRecommendation = false;
+
+            foreach ($user->recommendations as $userRecommendation) {
+                
+                if ($userRecommendation->pivot->profession_id == $profession->id) {
+
+                    $recommendations[$profession->id] = ['quantity' => $userRecommendation->pivot->quantity + $profession->quantity];
+
+                }
+
+            }
+
+            
+
+
+        }
+
+
+        $user->recommendations()->sync($recommendations);
 
         $recommendations = $this->userRepository->updateRecommendation($user);
 

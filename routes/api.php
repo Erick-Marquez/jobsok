@@ -20,4 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('technicians/{id}', [App\Http\Controllers\Api\TechnicianController::class , 'index']);
 
-Route::put('update-preference/{user}', [App\Http\Controllers\Api\TechnicianController::class , 'updatePreference']);
+
+Route::get('technician/{id}', [App\Http\Controllers\Api\TechnicianController::class , 'filterTechnician']);
+
+Route::put('update-preference/{id}', [App\Http\Controllers\Api\TechnicianController::class , 'updatePreference']);
