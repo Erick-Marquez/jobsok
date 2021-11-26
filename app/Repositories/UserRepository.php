@@ -19,7 +19,7 @@ class UserRepository
 
     public function findWithCity(int $id)
     {
-        return User::with('city')->firstOrFail();
+        return User::with('city')->where('id', $id)->firstOrFail();
     }
 
     public function findUserRecommendations(int $id)
