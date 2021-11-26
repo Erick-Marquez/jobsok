@@ -76,24 +76,21 @@ class UserRecommendationService
 
                     $recommendations[$profession->id] = ['quantity' => $userRecommendation->pivot->quantity + $profession->quantity];
 
+                    $haveRecommendation = true;
                 }
 
             }
 
-            if ($haveRecommendation) {
-                # code...
+            if (!$haveRecommendation) {
+
+                $recommendations[$profession->id] = ['quantity' => $profession->quantity];
+
             }
 
 
         }
 
-
-        $user->recommendations()->sync($recommendations);
-
-        $recommendations = $this->userRepository->updateRecommendation($user);
-
-        
-        return $recommendations;
+        return $user->recommendations()->sync($recommendations);
 
     }
 }
