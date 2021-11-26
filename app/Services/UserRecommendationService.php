@@ -80,7 +80,9 @@ class UserRecommendationService
 
             }
 
-            
+            if ($haveRecommendation) {
+                # code...
+            }
 
 
         }

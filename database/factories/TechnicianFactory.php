@@ -17,7 +17,7 @@ class TechnicianFactory extends Factory
         return [
             'name' => $this->faker->firstName(),
             'last_name' => $this->faker->lastName,
-            'phone' => $this->faker->unique()->numerify('9#########'),
+            'phone' => $this->faker->unique()->numerify('9########'),
             'email' => $this->faker->unique()->safeEmail(),
             'address' => $this->faker->streetAddress,
 

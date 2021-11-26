@@ -27,7 +27,7 @@ class TechnicianController extends Controller
      */
     public function index($id)
     {
-        $user = (new UserRepository)->findUserRecommendations($id);
+        $user = (new UserRepository)->findWithCity($id);
         $professions = Profession::all();
         $technicians = $this->userRecommendationService->getTechnicianRecommendations($id);
 
