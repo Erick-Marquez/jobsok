@@ -24,8 +24,7 @@ class UserRepository
 
     public function findUserRecommendations(int $id)
     {
-        $user = User::with('recommendations')->where('id', $id)->firstOrFail();
-        return $user->recommendations;
+        return User::with('recommendations')->where('id', $id)->firstOrFail();
     }
 
     public function updateRecommendation(int $id)

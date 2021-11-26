@@ -66,15 +66,15 @@ class UserRecommendationService
 
         $recommendations = [];
 
-        foreach ($request as $profession) {
+        foreach ($request->data as $profession) {
             
             $haveRecommendation = false;
 
             foreach ($user->recommendations as $userRecommendation) {
                 
-                if ($userRecommendation->pivot->profession_id == $profession->id) {
+                if ($userRecommendation->pivot->profession_id == $profession['id']) {
 
-                    $recommendations[$profession->id] = ['quantity' => $userRecommendation->pivot->quantity + $profession->quantity];
+                    $recommendations[$profession['id']] = ['quantity' => $userRecommendation->pivot->quantity + $profession['quantity']];
 
                     $haveRecommendation = true;
                 }
@@ -83,7 +83,7 @@ class UserRecommendationService
 
             if (!$haveRecommendation) {
 
-                $recommendations[$profession->id] = ['quantity' => $profession->quantity];
+                $recommendations[$profession['id']] = ['quantity' => $profession['quantity']];
 
             }
 
