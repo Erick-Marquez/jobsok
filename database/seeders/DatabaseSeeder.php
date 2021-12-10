@@ -15,14 +15,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        
+
 
         $this->call(CitySeeder::class);
         $this->call(ProfessionSedeer::class);
         $this->call(TechnicianSeeder::class);
-        
+        $this->call(UserSeeder::class);
+
         User::factory(10)->create();
 
-        
+
     }
 }
